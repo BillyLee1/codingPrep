@@ -64,4 +64,35 @@ function arrayDeDupe(arr) {
   return uniqueArr;
 }
 
-Using Recursion
+Using filter()
+
+function arrayDeDupeFilter(arr) {
+  return arr.filter((item, index) => arr.indexOf(item) === index);
+}
+
+Question #3: Compressing Strings
+Write an algorithm that takes a string with repeated characters and compresses them, using a number to show how many times the repeated character has been compressed. For instance, aaa would be written as 3a. Solve the problem with and without recursion.
+
+Steps:
+1. Go through each item in string and see if the next item is the same.
+2. If it is the same, add a count.
+3. Keep adding count until it the next item is not the same.
+4. Add the count number and unique item to a new string.
+
+function compressString(string) {
+  let count = 1;
+  let uniqueItem = "";
+  let compressed = "";
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === string[i + 1]) {
+      count++;
+      uniqueItem = string[i];
+    } else {
+      compressed += count + uniqueItem;
+      count = 1;
+      uniqueItem = string[i];
+    }
+  }
+
+  return compressed;
+}
