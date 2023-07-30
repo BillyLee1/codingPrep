@@ -110,3 +110,14 @@ function compressStringRecursion(string) {
 
 Question #4: Checking for Uniqueness
 Write an algorithm that determines whether all the elements in a string are unique. You may not convert the string into an array or use array methods to solve this problem. The algorithm should return a boolean.
+
+function uniqueChars(string) {
+  for (let i = 0; i < string.length; i ++) {
+    for (let j = i + 1; j < string.length; j++) {
+      if (string[i] === string[j]) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
