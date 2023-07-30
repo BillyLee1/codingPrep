@@ -84,15 +84,29 @@ function compressString(string) {
   let uniqueItem = "";
   let compressed = "";
   for (let i = 0; i < string.length; i++) {
+    uniqueItem = string[i];
     if (string[i] === string[i + 1]) {
       count++;
       uniqueItem = string[i];
     } else {
       compressed += count + uniqueItem;
       count = 1;
-      uniqueItem = string[i];
     }
   }
 
   return compressed;
 }
+
+function compressStringRecursion(string) {
+  if (string === "") {
+    return "";
+  }
+  let count = 1;
+  while (string[count] === string[0]) {
+    count++;
+  }
+  return count + string[0] + compressStringRecursion(string.slice(count));
+}
+
+Question #4: Checking for Uniqueness
+Write an algorithm that determines whether all the elements in a string are unique. You may not convert the string into an array or use array methods to solve this problem. The algorithm should return a boolean.
