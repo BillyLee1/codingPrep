@@ -121,3 +121,27 @@ function uniqueChars(string) {
   }
   return true;
 }
+
+Question #5: Array Sorting
+Write an algorithm that sorts an array without using the sort() method. There are many different sorting algorithms — take the time to read about the following:
+
+function quickSort(arr) {
+
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  let pivot = arr[0];
+  let left = [];
+  let right = [];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > pivot) {
+      right.push(arr[i]);
+    } else {
+      left.push(arr[i]);
+    }
+  }
+
+  return quickSort(left).concat(pivot, quickSort(right));
+}
