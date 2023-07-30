@@ -27,3 +27,41 @@ function spaceFinder(string) {
 
   return final;
 }
+
+*With recursion*
+
+function spaceFinderRecursion(string, index = 0) {
+  //checks if index is at string length, if it is, stop recursion.
+  if (index === string.length) { 
+    return string;
+  }
+
+  if (string[index] === " ") {
+    string = string.slice(0, index) + "%20" + string(index + 1)
+    index += 2;
+  }
+
+  return spaceFinderRecursion(string, index + 1);
+
+}
+
+Question #2: Array Deduping
+Write an algorithm that removes duplicates from an array. Do not use a function like filter() to solve this. Once you have solved the problem, demonstrate how it can be solved with filter(). Solve the problem with and without recursion.
+
+Steps:
+1. Go through list of items in array.
+2. Add unique items into a new array.
+3. If item already exists in the new array, skip to next item
+
+function arrayDeDupe(arr) {
+  let uniqueArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!uniqueArr.includes(arr[i])) {
+      uniqueArr.push(arr[i]);
+    }
+  }
+  return uniqueArr;
+}
+
+Using Recursion
